@@ -1,7 +1,7 @@
 // The Front object is loaded through the Front script added in the header of the main HTML.
 // This object can be used to listen to conversation event data as it occurs on Front, request information from Front, and perform actions on Front.
 // See the full plugin API documentation here: https://dev.frontapp.com/plugin.html
-var Front = require('@frontapp/ui-sdk');
+//var Front = require('@frontapp/ui-sdk');
 
 
 // This keeps track of if Front has returned a conversation to the plugin.
@@ -9,23 +9,7 @@ let hasConversation;
 
 console.log("MP Init");
 
-Front.contextUpdates.subscribe(context => {
-  console.log("Michael PAng");
-  switch(context.type) {
-    case 'noConversation':
-      console.log('No conversation selected');
-      break;
-    case 'singleConversation':
-      console.log('Selected conversation:', context.conversation);
-      break;
-    case 'multiConversations':
-      console.log('Multiple conversations selected', context.conversations);
-      break;
-    default:
-      console.error(`Unsupported context type: ${context.type}`);
-      break;
-  }
-});
+debugger;
 
 
 // Listen for the `conversation` event from Front and print its contents, then load the contact to the plugin.

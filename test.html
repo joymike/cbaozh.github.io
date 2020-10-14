@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>CORS jQuery Plugin</title>
+	</head>
+	<body>
+		<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+		<script>
+			function NoCors()
+			{
+					var username = "cbateam";
+					var password = $("#p1").val();
+
+					var url = 'https://ozharvest.crittah.com/webapi/oauth/token';
+					$.ajax({
+						url: url,
+						success: function(json) {
+							alert("Success", json);
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+						   alert(textStatus, errorThrown);
+						},
+						crossDomain: true,
+						beforeSend: function (xhr) {
+						//	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						  xhr.setRequestHeader ("Authorization", "Basic " + btoa(username + ":" + password));
+						},
+						type: 'GET',
+						contentType: 'json',
+					});
+
+			}
+		</script>
+		 <input type="text" id="p1" value="">
+		 <input type="button" onclick="NoCors()" value="Submit">
+
+	</body>
+</html>

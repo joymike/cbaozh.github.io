@@ -90,6 +90,12 @@ function displayContactInfo (display_name = "No Contact", handle = "-") {
 
   nameElement.textContent = display_name;
   handleElement.textContent = handle;
+
+  document.getElementById("usernameEcho").textContentn = document.getElementById("username");
+  document.getElementById("passwordEcho").textContentn = document.getElementById("password");
+
+
+
 }
 
 // Displays mocked CRM Info.

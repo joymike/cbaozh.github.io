@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -9,7 +8,7 @@
 		<script>
 			function NoCors()
 			{
-					var username = "cbateam";
+					var username = $("#u1").val();
 					var password = $("#p1").val();
 
 					var url = 'https://ozharvest.crittah.com/webapi/oauth/token';
@@ -32,6 +31,7 @@
 
 			}
 		</script>
+		 <input type="text" id="u1" value="cbateam"><br>
 		 <input type="text" id="p1" value="">
 		 <input type="button" onclick="NoCors()" value="Submit">
 

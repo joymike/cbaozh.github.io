@@ -183,3 +183,29 @@ function displayNote(note) {
   noteBlock.appendChild(noteBlurb);
   noteColumns.appendChild(noteBlock);
 }
+
+function getAuthToken(params) {
+  
+  var username = $("#username").val();
+  var password = $("#password").val();
+          
+  var settings = {
+    "url": "https://ozharvest.crittah.com/webapi/oauth/token",
+    "method": "GET",
+    "timeout": 0,
+    "headers": {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": "Basic Y2JhdGVhbTohdzYydWZLQGpiZyU="
+    },
+    "data": {
+      "grant_type": "password",
+      "username": "cbateam",
+      "password": "!w62ufK@jbg%"
+    }
+  };
+  
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+
+}

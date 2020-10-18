@@ -188,19 +188,21 @@ function getAuthToken(params) {
   
   var username = $("#username").val();
   var password = $("#password").val();
-          
+  
+  // https://gist.github.com/brandonmwest/a2632d0a65088a20c00a        
   var settings = {
     "url": "https://ozharvest.crittah.com/webapi/oauth/token",
     "method": "GET",
     "timeout": 0,
     "headers": {
       "Content-Type": "application/x-www-form-urlencoded",
-      "Authorization": "Basic Y2JhdGVhbTohdzYydWZLQGpiZyU="
+      "Authorization": btoa(username + ":" + password), //"Basic Y2JhdGVhbTohdzYydWZLQGpiZyU=",
+      "Access-Control-Allow-Origin": "https://frontapp.com/"
     },
     "data": {
-      "grant_type": "password",
-      "username": "cbateam",
-      "password": "!w62ufK@jbg%"
+    //  "grant_type": "password",
+    //  "username": "cbateam",
+    //  "password": "!w62ufK@jbg%"
     }
   };
   

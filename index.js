@@ -196,8 +196,8 @@ function getAuthToken(params) {
     "timeout": 0,
     "headers": {
       "Content-Type": "application/x-www-form-urlencoded",
-      "Authorization": btoa(username + ":" + password), //"Basic Y2JhdGVhbTohdzYydWZLQGpiZyU=",
-      "Access-Control-Allow-Origin": "https://frontapp.com/"
+      "Authorization": "Basic " + btoa(username + ":" + password), //"Basic Y2JhdGVhbTohdzYydWZLQGpiZyU=",
+      "Access-Control-Allow-Origin": "*" //"https://frontapp.com/"
     },
     "data": {
     //  "grant_type": "password",

@@ -12,19 +12,9 @@
 					var password = $("#p1").val();
 
 					var settings = {
-						"url": "https://ozharvest.crittah.com/webapi/oauth/token",
+						"url": "https://86msgeohy8.execute-api.us-east-1.amazonaws.com/default/ozh-test-cors",
 						"method": "GET",
 						"timeout": 0,
-						"headers": {
-							"Content-Type": "application/x-www-form-urlencoded",
-							"Authorization": "Basic Y2JhdGVhbTohdzYydWZLQGpiZyU=",
-							"Cookie": "ARRAffinity=3503ada2b767bfceea32fb43345456af988a69bceeb8732706560fad8cb7bfa9; ARRAffinitySameSite=3503ada2b767bfceea32fb43345456af988a69bceeb8732706560fad8cb7bfa9; ASP.NET_SessionId=y5kmvyv4csylkm5bg321ahrg"
-						},
-						"data": {
-							"grant_type": "password",
-							"username": username,
-							"password": password
-						}
 					};
 
 					$.ajax(settings).done(function (response) {

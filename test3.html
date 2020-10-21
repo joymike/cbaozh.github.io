@@ -11,14 +11,9 @@
 		function NoCors() {
 			var username = $("#u1").val();
 			var password = $("#p1").val();
-
-			// var payload = "data: {\r\n  \"key1\": \"cbateam\",\r\n  \"key2\": \" " + password + "\"\r\n}";
-			// console.log(payload);
-			var url =
-			"https://86msgeohy8.execute-api.us-east-1.amazonaws.com/default/ozh-test-cors?key1=" + username + "&key2=" + password;
-			console.log(url);
+			var url = $("#url").val();
 			var settings = {
-				"url": url,
+				"url": url + "?key1=" + username + "&key2=" + password,
 				"method": "GET",
 				"timeout": 0,
 				"headers": {
@@ -31,8 +26,14 @@
 			});
 		}
 	</script>
+
+<h3>https://86msgeohy8.execute-api.us-east-1.amazonaws.com/default/ozh-test-cors</h3>
+<h3>https://29xtygt8tl.execute-api.us-east-1.amazonaws.com/default/ozh-test-cors2</h3>
+<h3>https://r0tmkxy557.execute-api.us-east-1.amazonaws.com/default/ozh-test-cors3</h3>
+
 	<input type="text" id="u1" value="cbateam"><br>
-	<input type="text" id="p1" value="">
+	<input type="text" id="p1" value=""><br>
+	<input type="text" id="url" value="https://r0tmkxy557.execute-api.us-east-1.amazonaws.com/default/ozh-test-cors3"><br>
 	<input type="button" onclick="NoCors()" value="Submit">
 
 </body>

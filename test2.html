@@ -13,19 +13,10 @@
 			var password = $("#p1").val();
 
 			var settings = {
-						"url": "https://29xtygt8tl.execute-api.us-east-1.amazonaws.com/default/ozh-test-cors2",
-						"method": "GET",
-						"timeout": 0,
-						// "headers": {
-						// 	"grant_type": "passwprd",
-						// 	"Authorization": "Basic Y2JhdGVhbTohdzYydWZLQGpiZyU=",
-						// },
-						// "data": {
-						// 	"grant_type": "password",
-						// 	"username": username,
-						// 	"password": password
-						// }
-					};
+				"url": "https://29xtygt8tl.execute-api.us-east-1.amazonaws.com/default/ozh-test-cors2",
+				"method": "GET",
+				"timeout": 0
+			};
 
 			$.ajax(settings).done(function (response) {
 				console.log(response);

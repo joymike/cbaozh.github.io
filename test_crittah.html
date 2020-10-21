@@ -12,18 +12,18 @@
 			var username = $("#u1").val();
 			var password = $("#p1").val();
 
-			// var payload = "data: {\r\n  \"key1\": \"cbateam\",\r\n  \"key2\": \" " + password + "\"\r\n}";
-			// console.log(payload);
-			var url =
-			"https://86msgeohy8.execute-api.us-east-1.amazonaws.com/default/ozh-test-cors?key1=" + username + "&key2=" + password;
-			console.log(url);
 			var settings = {
-				"url": url,
+				"url": "https://29xtygt8tl.execute-api.us-east-1.amazonaws.com/default/ozh-test-cors2?grant_type=password&username=cbatest&password=!w62ufK@jbg%",
 				"method": "GET",
 				"timeout": 0,
 				"headers": {
 					"Content-Type": "text/plain"
 				},
+				"data": {
+					"grant_type": "password",
+					"username": username,
+					"password": password
+				}
 			};
 
 			$.ajax(settings).done(function (response) {

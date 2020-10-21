@@ -1,0 +1,41 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>CORS jQuery Plugin</title>
+</head>
+
+<body>
+	<script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+	<script>
+		function NoCors() {
+			var username = $("#u1").val();
+			var password = $("#p1").val();
+
+			var settings = {
+						"url": "https://29xtygt8tl.execute-api.us-east-1.amazonaws.com/default/ozh-test-cors2",
+						"method": "GET",
+						"timeout": 0,
+						// "headers": {
+						// 	"grant_type": "passwprd",
+						// 	"Authorization": "Basic Y2JhdGVhbTohdzYydWZLQGpiZyU=",
+						// },
+						// "data": {
+						// 	"grant_type": "password",
+						// 	"username": username,
+						// 	"password": password
+						// }
+					};
+
+			$.ajax(settings).done(function (response) {
+				console.log(response);
+			});
+		}
+	</script>
+	<input type="text" id="u1" value="cbateam"><br>
+	<input type="text" id="p1" value="">
+	<input type="button" onclick="NoCors()" value="Submit">
+
+</body>
+
+</html>

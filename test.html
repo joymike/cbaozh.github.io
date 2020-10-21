@@ -1,30 +1,39 @@
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title>CORS jQuery Plugin</title>
-	</head>
-	<body>
-		<script src="https://code.jquery.com/jquery-1.8.3.js"></script>
-		<script>
-			function NoCors()
-			{
-					var username = $("#u1").val();
-					var password = $("#p1").val();
 
-					var settings = {
-						"url": "https://86msgeohy8.execute-api.us-east-1.amazonaws.com/default/ozh-test-cors",
-						"method": "GET",
-						"timeout": 0,
-					};
+<head>
+	<meta charset="utf-8" />
+	<title>CORS jQuery Plugin</title>
+</head>
 
-					$.ajax(settings).done(function (response) {
-						console.log(response);
-					});
-			}
-		</script>
-		 <input type="text" id="u1" value="cbateam"><br>
-		 <input type="text" id="p1" value="">
-		 <input type="button" onclick="NoCors()" value="Submit">
+<body>
+	<script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+	<script>
+		function NoCors() {
+			var username = $("#u1").val();
+			var password = $("#p1").val();
 
-	</body>
+			// var payload = "data: {\r\n  \"key1\": \"cbateam\",\r\n  \"key2\": \" " + password + "\"\r\n}";
+			// console.log(payload);
+var url = "https://86msgeohy8.execute-api.us-east-1.amazonaws.com/default/ozh-test-cors?key1=" + username + "&key2=" + password;
+			console.log(url);
+			var settings = {
+				"url": url,
+				"method": "GET",
+				"timeout": 0,
+				"headers": {
+					"Content-Type": "text/plain"
+				},
+			};
+
+			$.ajax(settings).done(function (response) {
+				console.log(response);
+			});
+		}
+	</script>
+	<input type="text" id="u1" value="cbateam"><br>
+	<input type="text" id="p1" value="">
+	<input type="button" onclick="NoCors()" value="Submit">
+
+</body>
+
 </html>

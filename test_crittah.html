@@ -6,24 +6,24 @@
 </head>
 
 <body>
-	<script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+	<script src="https://code.jquery.com/jquery-1.8.3.min.js" integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8=" crossorigin="anonymous"></script>
+
 	<script>
 		function NoCors() {
 			var username = $("#u1").val();
 			var password = $("#p1").val();
-
+			var url =
+			"https://ozharvest.crittah.com/webapi/oauth/token";
 			var settings = {
-				"url": "https://29xtygt8tl.execute-api.us-east-1.amazonaws.com/default/ozh-test-cors2?grant_type=password&username=cbatest&password=!w62ufK@jbg%",
-				"method": "GET",
+				"url": url,
+				"method": "POST",
 				"timeout": 0,
+				"data": "grant_type=password&password=" + encodeURIComponent(password) + "&username=" + encodeURIComponent(username),
+
 				"headers": {
 					"Content-Type": "text/plain"
-				},
-				"data": {
-					"grant_type": "password",
-					"username": username,
-					"password": password
 				}
+
 			};
 
 			$.ajax(settings).done(function (response) {

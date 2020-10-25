@@ -1,8 +1,11 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="utf-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>CORS jQuery Plugin</title>
+    <link rel="stylesheet" type="text/css" href="test_crittah.css" />	
 </head>
 
 <body>
@@ -31,9 +34,20 @@
 			});
 		}
 	</script>
-	<input type="text" id="u1" value="cbateam"><br>
-	<input type="text" id="p1" value="">
-	<input type="button" onclick="NoCors()" value="Submit">
+
+	<div id="loginPnl" class="hide">
+		<input type="text" id="u1" value="cbateam"><br/>
+		<input type="text" id="p1" value="">
+		<input type="button" id="loginBtn" value="Submit">
+	</div>
+
+	<div id="contactPnl">
+		<h2>Contacts</h2>
+		<hr>
+	</div>
+
+	<!-- Scripts -->
+    <script src="test_crittah.js"></script>
 
 </body>
 

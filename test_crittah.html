@@ -10,30 +10,7 @@
 
 <body>
 	<script src="https://code.jquery.com/jquery-1.8.3.min.js" integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8=" crossorigin="anonymous"></script>
-
-	<script>
-		function NoCors() {
-			var username = $("#u1").val();
-			var password = $("#p1").val();
-			var url =
-			"https://ozharvest.crittah.com/webapi/oauth/token";
-			var settings = {
-				"url": url,
-				"type": "POST",
-				"timeout": 0,
-				"data": "grant_type=password&password=" + encodeURIComponent(password) + "&username=" + encodeURIComponent(username),
-
-				"headers": {
-					"Content-Type": "text/plain"
-				}
-
-			};
-
-			$.ajax(settings).done(function (response) {
-				console.log(response);
-			});
-		}
-	</script>
+	<script type="text/javascript" src="https://dl.frontapp.com/libs/plugin-sdk-1.0.1.min.js"></script>
 
 	<div id="loginPnl" class="hide">
 		<input type="text" id="u1" value="cbateam"><br/>
@@ -45,6 +22,8 @@
 		<h2>Contacts</h2>
 		<hr>
 	</div>
+
+	<p id="error"></p>
 
 	<!-- Scripts -->
     <script src="test_crittah.js"></script>

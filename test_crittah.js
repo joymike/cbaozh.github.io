@@ -62,10 +62,10 @@ window.addEventListener('load', () => {
         }
     });
 
-    async function getContact(contact) {
+    async function getContact(recipient) {
 
         const token = sessionStorage.getItem("access_token");
-        if (!token || !contact) {
+        if (!token || !recipient || !recipient.handle) {
             return;
         }
         var url = "https://ozharvest.crittah.com/webapi/api/v1/contacts/search";
@@ -73,7 +73,7 @@ window.addEventListener('load', () => {
             "url": url,
             "type": "POST",
             "timeout": 0,
-            "data": JSON.stringify({"email":contact}),
+            "data": JSON.stringify({"email":recipient.handle}),
             "headers": {
                 "Authorization": "Bearer " + token,
                 "Content-Type": "application/json"
@@ -94,7 +94,7 @@ window.addEventListener('load', () => {
 
     async function displayContact(contact) {
 
-        console.log(response);
+        console.log(contact);
 
     }
 });  

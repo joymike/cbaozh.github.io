@@ -1,3 +1,9 @@
 .hide {
     display: none;
 }
+#idContactPnl {
+    margin: 1rem;
+}
+#idContactPnl .llst {
+    border-bottom: 1px solid;
+}

@@ -118,7 +118,7 @@ window.addEventListener('load', () => {
     function displayContacts(contacts) {
 
         // Combine template with data
-        var html = contactsTemplateScript(contacts);
+        var html = contactsTemplateScript({"contacts": contacts});
         
         // Insert the HTML code into the page
         $("#idContactPnl").html(html);        

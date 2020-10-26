@@ -52,7 +52,18 @@ window.addEventListener('load', () => {
           return options.fn(this);
         }
         return options.inverse(this);
-      });
+    });
+
+    Handlebars.registerHelper('formatPhone', function (mobile, phone) {
+        if (mobile && phone) {
+            return `${mobile},${phone}`;
+        } else if (!mobile && phone) {
+            return phone;
+        } else if (mobile && !phone) {
+            return mobile;
+        }
+        return "";
+    })
 
     let hasConversation;
 

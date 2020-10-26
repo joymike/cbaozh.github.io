@@ -95,8 +95,10 @@ window.addEventListener('load', () => {
             return;
         }
         const url = "https://ozharvest.crittah.com/webapi/api/v1/contacts/search";
+        
         // For test only
-        recipient.handle = "james.skurray@crittah.com";
+        // recipient.handle = "james.skurray@crittah.com";
+        
         const settings = {
             "url": url,
             "type": "POST",
@@ -139,25 +141,8 @@ window.addEventListener('load', () => {
         // Combine template with data
         var html = contactsTemplateScript({"contacts": contacts});
         
-        // Insert the HTML code into the page
+        // Insert Contacs html into the page
         $("#idContactPnl").html(html);        
-
-/*         if (contacts.length === 0) {
-            // Show "No Contact" message
-            $("#idNoContactMsg").removeClass('hide');            
-        } 
-
-        displayContact(contacts[0])*/
-
-    }
-
-    function displayContact(contact) {
-
-        $("#idContactName").val(`${contact.salutation} ${contact.firstName} ${contact.lastName}`);
-        $("#idContactEmail").val(contact.email);
-        $("#idContactMobile").val(contact.mobile);
-        $("#idContactPhone").val(contact.phone);
-        $("#idContactStatus").val(contact.status);
 
     }
 

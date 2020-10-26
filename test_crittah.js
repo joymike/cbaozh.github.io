@@ -46,6 +46,14 @@ window.addEventListener('load', () => {
     // Compile the template data into a function
     var contactsTemplateScript = Handlebars.compile(contactsTemplate);
 
+    // Condition to display status icon
+    Handlebars.registerHelper('ifStatus', function(status, options) {
+        if(status === "Active") {
+          return options.fn(this);
+        }
+        return options.inverse(this);
+      });
+
     let hasConversation;
 
     // Receive context updates

@@ -2,7 +2,7 @@
     display: none;
 }
 #idContactPnl {
-    margin: 1rem;
+    padding: 1rem;
 }
 #idContactPnl .list {
     border-bottom: 1px solid;

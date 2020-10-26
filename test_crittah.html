@@ -46,11 +46,11 @@
 						</div>
 					</div>
 					<div class="item">
-						{{#if status==="Active"}}
+						{{#ifStatus status}}
 							<i class="toggle on icon"></i>
 						{{else}}
 							<i class="toggle off icon"></i>
-						{{/if}}
+						{{/ifStatus}}
 						<div class="content">
 							{{status}}
 						</div>

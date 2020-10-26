@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
 
-    const loginPanel = $('#loginPnl');
-    const loginButton = $('#loginBtn');
+    const loginPanel = $('#idLoginPnl');
+    const loginButton = $('#idLoginBtn');
     loginButton.on("click", getAuthToken);
 
     // If we don't have access token stored, show Login panel
@@ -12,8 +12,8 @@ window.addEventListener('load', () => {
 
     function getAuthToken() {
 
-        var username = $("#u1").val();
-        var password = $("#p1").val();
+        var username = $("#idUserName").val();
+        var password = $("#idPassword").val();
         var url = "https://ozharvest.crittah.com/webapi/oauth/token";
         var settings = {
             "url": url,
@@ -34,10 +34,17 @@ window.addEventListener('load', () => {
         }).fail(function (jqXHR, textStatus, errorThrown){
 
             if (jqXHR.responseText) {
-                $("#error").html(JSON.stringify(JSON.parse(jqXHR.responseText), null, 4));
+                $("#idErrorMsg").html(JSON.stringify(JSON.parse(jqXHR.responseText), null, 4));
             }
         });
     }
+
+    
+    // Get Contacts template from html
+    var contactsTemplate = $('#idContactsTemplate').html();
+
+    // Compile the template data into a function
+    var contactsTemplateScript = Handlebars.compile(contactsTemplate);
 
     let hasConversation;
 
@@ -68,8 +75,10 @@ window.addEventListener('load', () => {
         if (!token || !recipient || !recipient.handle) {
             return;
         }
-        var url = "https://ozharvest.crittah.com/webapi/api/v1/contacts/search";
-        var settings = {
+        const url = "https://ozharvest.crittah.com/webapi/api/v1/contacts/search";
+        // For test only
+        recipient.handle = "james.skurray@crittah.com";
+        const settings = {
             "url": url,
             "type": "POST",
             "timeout": 0,
@@ -82,19 +91,55 @@ window.addEventListener('load', () => {
 
         $.ajax(settings).done(function (response) {
 
-            displayContact(response);
+            displayContacts(response);
 
         }).fail(function (jqXHR, textStatus, errorThrown){
 
             if (jqXHR.responseText) {
-                $("#error").html(JSON.stringify(JSON.parse(jqXHR.responseText), null, 4));
+                $("#idErrorMsg").html(JSON.stringify(JSON.parse(jqXHR.responseText), null, 4));
             }
         });
     }
 
-    async function displayContact(contact) {
+    // Display Contacts
+    // contactRef: "1470742"
+    // edit: "/Contact/edit/66472d58-8ef9-4687-9455-a54dca123dd1"
+    // email: "james.skurray@crittah.com"
+    // fax: ""
+    // firstName: "James"
+    // idContact: "66472d58-8ef9-4687-9455-a54dca123dd1"
+    // idContactSelector: "66472d58-8ef9-4687-9455-a54dca123dd1"
+    // lastName: "Skurray"
+    // mobile: "0416 234 970"
+    // phone: ""
+    // salutation: "Mr"
+    // status: "Active"
+    // view: "/Contact/view/66472d58-8ef9-4687-9455-a54dca123dd1"
+    function displayContacts(contacts) {
 
-        console.log(contact);
+        // Combine template with data
+        var html = contactsTemplateScript(contacts);
+        
+        // Insert the HTML code into the page
+        $("#idContactPnl").html(html);        
+
+/*         if (contacts.length === 0) {
+            // Show "No Contact" message
+            $("#idNoContactMsg").removeClass('hide');            
+        } 
+
+        displayContact(contacts[0])*/
 
     }
+
+    function displayContact(contact) {
+
+        $("#idContactName").val(`${contact.salutation} ${contact.firstName} ${contact.lastName}`);
+        $("#idContactEmail").val(contact.email);
+        $("#idContactMobile").val(contact.mobile);
+        $("#idContactPhone").val(contact.phone);
+        $("#idContactStatus").val(contact.status);
+
+    }
+
 });  

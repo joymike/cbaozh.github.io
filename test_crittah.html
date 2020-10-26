@@ -10,20 +10,56 @@
 
 <body>
 	<script src="https://code.jquery.com/jquery-1.8.3.min.js" integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 	<script type="text/javascript" src="https://dl.frontapp.com/libs/plugin-sdk-1.0.1.min.js"></script>
 
-	<div id="loginPnl" class="hide">
-		<input type="text" id="u1" value="cbateam"><br/>
-		<input type="text" id="p1" value="">
-		<input type="button" id="loginBtn" value="Submit">
+	<div id="idLoginPnl" class="hide">
+		<input type="text" id="idUserName" value="cbateam"><br/>
+		<input type="text" id="idPassword" value="">
+		<input type="button" id="idLoginBtn" value="Submit">
 	</div>
 
-	<div id="contactPnl">
+	<div id="idContactPnl">
 		<h2>Contacts</h2>
 		<hr>
+		<p id="idNoContactMsg" class="hide">No contact found in Crittah.</p>
+		<div>Contact Name: <span id="idContactName"></span></div>
+		<div>Email: <span id="idContactEmail"></span></div>
+		<div>Mobile: <span id="idContacMobile"></span></div>
+		<div>Phone: <span id="idContactPhone"></span></div>
+		<div>Status: <span id="idContactStatus"></span></div>		
 	</div>
 
-	<p id="error"></p>
+	<script id="idContactsTemplate" type="text/x-handlebars-template">
+		<h2>Contacts</h2>
+		{{#if contacts}}
+			<table>
+				<thead>
+					<th>Contact Name</th>
+					<th>Email</th>
+					<th>Mobile</th>
+					<th>Phone</th>
+					<th>Status</th>
+				</thead>
+				<tbody>
+					{{#each contacts}}
+						<tr>
+							<td>{{salutation}} {{firstName}} {{lastName}}</td>
+							<td>{{email}}</td>
+							<td>{{mobile}}</td>
+							<td>{{phone}}</td>
+							<td>{{status}}</td>
+						</tr>
+				  	{{/each}}
+				</tbody>
+			</table>
+		  {{else}}
+			<hr>
+			<p>No contacts found.</p>
+	  	{{/if}}
+	</script>
+
+	<p id="idErrorMsg"></p>
 
 	<!-- Scripts -->
     <script src="test_crittah.js"></script>

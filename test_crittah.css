@@ -1,6 +1,9 @@
 .hide {
     display: none;
 }
+#idLoginPnl {
+    padding: 1rem;
+}
 #idContactPnl {
     padding: 1rem;
 }

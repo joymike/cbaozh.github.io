@@ -13,11 +13,17 @@
 	<script src="https://code.jquery.com/jquery-1.8.3.min.js" integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 	<script type="text/javascript" src="https://dl.frontapp.com/libs/plugin-sdk-1.0.1.min.js"></script>
-
-	<div id="idLoginPnl" class="hide">
-		<input type="text" id="idUserName" value="cbateam"><br/>
-		<input type="text" id="idPassword" value="">
-		<input type="button" id="idLoginBtn" value="Submit">
+	
+	<div id="idLoginPnl" class="ui form hide">
+		<div class="field">
+			<label>Username</label>
+			<input id="idUserName" type="text" placeholder="Username" value="cbateam">
+		</div>
+		<div class="field">
+			<label>Password</label>
+			<input id="idPassword" type="password">
+		</div>
+		<button id="idLoginBtn" type="submit" class="ui button">Login</button>
 	</div>
 
 	<div id="idContactPnl"></div>		

@@ -10,10 +10,10 @@ window.addEventListener('load', () => {
       apiSettings: {
         url: 'https://ozharvest.crittah.com/webapi/api/v1/customers/lookup',
         method: "POST",
-        data: //JSON.stringify({'searchString':'RPM'}),
-        {
-            'searchString':'RPM'
-        },
+        data: JSON.stringify({'searchString':'RPM'}),
+        // {
+        //     'searchString':'RPM'
+        // },
         onSelect(result, response) {
             var test1 = "";
         },
@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
         },
         beforeSend: function(settings) {
             console.log(settings);
-            var test3 = "";
+            return settings;
         },
         beforeXHR: function(xhr) {
             console.log(xhr);

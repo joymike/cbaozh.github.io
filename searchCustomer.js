@@ -46,9 +46,9 @@ window.addEventListener('load', () => {
                 // translate Crittah API response to work with search
                 $.each(Object.values(crittahResponse), function(index, item) {
                     response.results.push({
-                        title       : item.companyName
+                        title       : item.companyName,
                         //description : item.description
-                        //id          : item.idCustomer
+                        key          : item.idCustomer
                     });
                 });
                 return response;

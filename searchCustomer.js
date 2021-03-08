@@ -9,16 +9,29 @@ window.addEventListener('load', () => {
     $('.ui.search').search({
       apiSettings: {
         url: 'https://ozharvest.crittah.com/webapi/api/v1/customers/lookup',
-        method: "post",
-        data: {
-            "searchString": "RPM"
+        method: "POST",
+        data: //JSON.stringify({'searchString':'RPM'}),
+        {
+            'searchString':'RPM'
         },
         onSelect(result, response) {
             var test1 = "";
         },
         onResults(response) {
             var test2 = "";
-        }
+        },
+        beforeSend: function(settings) {
+            console.log(settings);
+            var test3 = "";
+        },
+        beforeXHR: function(xhr) {
+            console.log(xhr);
+            // adjust XHR with additional headers   
+            const token = sessionStorage.getItem("access_token");        
+            xhr.setRequestHeader ('Authorization', "Bearer " + token);
+            xhr.setRequestHeader ('Content-Type', 'application/json');
+            return xhr;
+        }   
       },
       fields: {
            id: 'idCustomer',

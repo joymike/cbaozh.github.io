@@ -32,13 +32,9 @@ window.addEventListener('load', () => {
             xhr.setRequestHeader ('Authorization', "Bearer " + token);
             xhr.setRequestHeader ('Content-Type', 'application/json');
             return xhr;
-        },
-        onResponse: function(response) {
-            // make some adjustments to response
-            return response;
         }, 
         onResponse: function(crittahResponse) {
-
+            // make some adjustments to response
             if(!crittahResponse || !Object.keys(crittahResponse).length === 0) {
               return;
             }
@@ -49,8 +45,8 @@ window.addEventListener('load', () => {
             $.each(Object.values(crittahResponse), function(index, item) {
               response.results.push({
                 title       : item.companyName,
-              //description : item.description,
-                id          : item.idCustomer
+                description : item.description
+                //id          : item.idCustomer
               });
             });
             return response;

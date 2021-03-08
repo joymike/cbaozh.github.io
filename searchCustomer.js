@@ -36,16 +36,34 @@ window.addEventListener('load', () => {
         onResponse: function(response) {
             // make some adjustments to response
             return response;
-        },   
+        }, 
+        onResponse: function(crittahResponse) {
+
+            if(!crittahResponse || !Object.keys(crittahResponse).length === 0) {
+              return;
+            }
+            var response = {
+                results : []
+            };            
+            // translate Crittah API response to work with search
+            $.each(Object.values(crittahResponse), function(index, item) {
+              response.results.push({
+                title       : item.companyName,
+              //description : item.description,
+                id          : item.idCustomer
+              });
+            });
+            return response;
+        },       
         onSuccess: function(response) {
             // valid response and response.success = true
             console.log(response);
         }      
       },
-      fields: {
-           id: 'idCustomer',
-        title: 'companyName'
-      },
+    //   fields: {
+    //        id: 'idCustomer',
+    //     title: 'companyName'
+    //   },
       minCharacters : 3
     });
 

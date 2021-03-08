@@ -17,21 +17,30 @@ window.addEventListener('load', () => {
         onSelect(result, response) {
             var test1 = "";
         },
-        onResults(response) {
-            var test2 = "";
-        },
         beforeSend: function(settings) {
-            console.log(settings);
+            //console.log(settings);
             return settings;
         },
         beforeXHR: function(xhr) {
-            console.log(xhr);
             // adjust XHR with additional headers   
-            const token = sessionStorage.getItem("access_token");        
+            const token = sessionStorage.getItem("access_token"); 
+            // cancel request
+            if(!token) {
+                $(this).state('flash text', 'Requires Login!');
+                return false;
+            }       
             xhr.setRequestHeader ('Authorization', "Bearer " + token);
             xhr.setRequestHeader ('Content-Type', 'application/json');
             return xhr;
-        }   
+        },
+        onResponse: function(response) {
+            // make some adjustments to response
+            return response;
+        },   
+        onSuccess: function(response) {
+            // valid response and response.success = true
+            console.log(response);
+        }      
       },
       fields: {
            id: 'idCustomer',
